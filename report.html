@@ -12712,7 +12712,7 @@ Naive Predictor: [Accuracy score: 0.2478, F-score: 0.2917]
     <li>This model can be used for face detection</li>
     <li>This model can be used in conjunction with many other types of learning algorithms to increase performance. Only the features that are known to improve the predictive power of the model, reduce dimensionality, and possibly improve execution time are selected because irrelevant features need not be calculated.</li>
     <li>AdaBoost is sensitive to noisy data and outliers.</li>
-    <li>It is a simple ensemble method that is very effective and has a good average accuracy.</li>
+    <li>We have clean data now and a big dataset. It is a simple ensemble method that is very effective and has a good average accuracy and Adaboost is easy to implement because few to no parameters are required. And Adaboost is versatile. It can be used with data that is textual, <b>numeric</b>, that contains <b>categorical variables</b>, etc.</li>
     <li>References: 
         <ul>
         <li><a href="https://en.wikipedia.org/wiki/AdaBoost">AdaBoost</a></li>
@@ -13007,9 +13007,12 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Adaboost is a procedure that is an efficient decision rule for a Classification problem sets up. AdaBoost combines weak learning algorithms "Weak Learner" to a strong classifier "Strong Learner". The Weak Learners should deliver a slightly better result than a random process.</p>
-<p><strong>And that is how it works</strong><br/>
-The individual data points all will be first equally weighted. After every Training rounds change these weights in favor of the examples that caused the biggest mistake. The weighting of the training set becomes the weights of the individual weak learner set.</p>
+<p>Ensemble learning is about methods that aim to improve a set of classifiers by putting them together into a single classifier.
+AdaBoost will pass a weighted majority vote
+the individual classifiers. These individual classifiers are often referred to in this context as "simple" classifiers, so-called 'Weak Learner'. A single weak learner only has to be better than chance.
+Boosting considers the classification decision of the ensemble under consideration
+of all individual results of the classifiers involved. The basic idea is that many together make a better decision than one alone. If one considers the individual classifiers as experts, the Boosting with
+be compared to an expert panel voting on the final outcome.</p>
 
 </div>
 </div>
@@ -13329,7 +13332,7 @@ Final F-score on the testing data: 0.7448
 <p><strong>Answer:</strong></p>
 <ul>
 <li>My assessment of the weighting of the features is 3/5 off the mark. Two of the features are included in my assessment (age and capital gain)</li>
-<li>Since the visualization is only a numeric feature, it could be that the AdaBoostClassifier is not that good at handling non-numeric features that have been converted to the one-hot-encoding schema. Or I'm simply wrong and the five most important features in the dataset are really in the presented visualization.</li>
+<li>Loss of capital is a good way to predict whether a person earns at least 50.000 because a high capital loss reduce the income. Higher scores in the weekly work increase the likelihood of higher income. In the same way, this relates to the educational years. A person who has studied for only a few years will probably still be studying and thus not working. Whereas a person with high educational years has a better education and thus earns more.</li>
 </ul>
 
 </div>
@@ -13421,7 +13424,7 @@ F-score on testing data: 0.7053
 <p><strong>Answer:</strong></p>
 <ul>
 <li>With the reduced data on only 5 features also the F-score (0.7448 -&gt; 0.7053) as well as the accuracy (0.8676 -&gt; 0.8433) decreases.</li>
-<li>For our project 'Finding Donors for CharityML' a real-time application does not play a big role. Here I would work with all features. Whereas in real-time applications where the data is immediately processed and evaluated, I would use a reduced set of data if accuracy in the application is not paramount.</li>
+<li>If the training time was a factor, I would use the reduced data set because the training is faster due to less data. In our project 'Finding Donors for CharityML' the training time is not important because it makes no difference if we need 1 minute or 10 minutes to train the data.</li>
 </ul>
 
 </div>
